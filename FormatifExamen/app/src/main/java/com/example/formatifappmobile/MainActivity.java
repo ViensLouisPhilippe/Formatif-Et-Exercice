@@ -2,6 +2,7 @@ package com.example.formatifappmobile;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ActivityMainBinding binding;
     private ActionBarDrawerToggle abToggle;
 
-
+    private ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView nv = binding.navView;
         DrawerLayout dl = binding.drawerLayout;
+
+
         abToggle = new ActionBarDrawerToggle(this, dl, R.string.drawer_open, R.string.drawer_close){
+
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
@@ -50,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         };
         dl.addDrawerListener(abToggle);
         abToggle.syncState();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        actionBar = getSupportActionBar();
+        actionBar.setTitle("page 1");
         nv.setNavigationItemSelectedListener(this);
 
         binding.ButtonGo.setOnClickListener(new View.OnClickListener() {
