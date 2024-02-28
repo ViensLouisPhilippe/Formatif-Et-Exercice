@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_pageA"
+        android:title="Page A" />
+    <item
+        android:id="@+id/nav_pageB"
+        android:title="Page B" />
+</menu>
