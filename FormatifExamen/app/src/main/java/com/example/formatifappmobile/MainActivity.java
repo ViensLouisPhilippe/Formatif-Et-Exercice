@@ -20,6 +20,8 @@ import android.widget.Toast;
 import com.example.formatifappmobile.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private ActivityMainBinding binding;
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         abToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         actionBar = getSupportActionBar();
-        actionBar.setTitle("page 1");
+        actionBar.setTitle("Pokédex");
         nv.setNavigationItemSelectedListener(this);
 
         binding.ButtonGo.setOnClickListener(new View.OnClickListener() {
