@@ -19,7 +19,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.formatifappmobile.databinding.ActivityMainBinding;
 import com.example.formatifappmobile.databinding.ActivitySecondBinding;
+import com.example.formatifappmobile.http.Service;
+import com.example.formatifappmobile.http.retrofitUtil;
+import com.example.formatifappmobile.transfert.Pokemon;
 import com.google.android.material.navigation.NavigationView;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SecondActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private ActionBarDrawerToggle abToggle;
@@ -56,6 +63,7 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
         actionBar = getSupportActionBar();
         actionBar.setTitle("Pokédex");
         nv.setNavigationItemSelectedListener(this);
+        showPokemon();
 
     }
     @Override
@@ -100,5 +108,29 @@ public class SecondActivity extends AppCompatActivity implements NavigationView.
     private void startActivityForItem2() { showToast("L'activity est en cours"); }
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showPokemon(){
+        Service service = (Service) retrofitUtil.get();
+
+        String id = getIntent().getStringExtra("PokemonId");
+        service.getPokemon(id).enqueue(new Callback<Pokemon>() {
+            @Override
+            public void onResponse(Call<Pokemon> call, Response<Pokemon> response) {
+                if (response.isSuccessful()){
+                    Pokemon p = response.body();
+                    binding.tvHauteur.setText(String.valueOf(p.hauteur));
+                    binding.tvPoids.setText(String.valueOf(p.poids));
+                    binding.tvNomPokemon.setText(p.nom);
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Pokemon> call, Throwable t) {
+
+            }
+        });
     }
 }

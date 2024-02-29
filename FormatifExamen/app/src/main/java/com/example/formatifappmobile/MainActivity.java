@@ -68,7 +68,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     int idPokemon = Integer.parseInt(binding.ETNombre.getText().toString());
                     if (idPokemon >= 1 && idPokemon <= 1008)
                     {
+                        String id = binding.ETNombre.getText().toString();
                         Intent i = new Intent(MainActivity.this, SecondActivity.class);
+                        i.putExtra("PokemonId", id);
                         startActivity(i);
                     }else
                         showToast("Erreur : la valeur doit être entre 1 et 1008");
