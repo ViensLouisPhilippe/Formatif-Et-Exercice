@@ -1,0 +1,16 @@
+QUESTION A :
+Expliquez clairement la différence entre une faille, un exploit et un correctif:
+
+Faille: Vulnérabilité de sécurité dans le code de l'application
+Exploit: Méthode ou code qui exploite une vulnérabilité de la sécurité, façon d'exploiter une vulnérabilité
+voir ce que la faille peut donner/faire.
+Correctif: Une mise a jour du code pour résoudre la vulnérabilité
+
+Question B
+Quelle est la différence entre une faille de contrôle d'accès et une faille d'injection SQL?
+
+Une faille de contrôle d'accès relève de la mauvaise gestion des permissions et des droits d'accès des utilisateurs
+tandis que la faille d'injection SQL relève de la mauvaise gestion des entrées utilisateur qui peuvent permettre
+d'effectuer des requête SQL.
+Une faille de contrôle accès est un accès non-autorisé à des ressources par des utilisateurs non autorisé
+Une faille d'injection SQL est un exposition ou modification de donné sensible qui compromet la base de donnée
